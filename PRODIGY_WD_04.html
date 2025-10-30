@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+
+    <style>
+        /* === RESET === */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: #fff;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+        /* === HEADER === */
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+        }
+        
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00adb5;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #00adb5;
+        }
+        /* === HOME SECTION === */
+        
+        .home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+        
+        .home h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .home p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+        }
+        
+        .btn {
+            margin-top: 25px;
+            padding: 10px 25px;
+            background: #00adb5;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #007b83;
+        }
+        /* === ABOUT SECTION === */
+        
+        .about {
+            padding: 100px 10%;
+            background: #111;
+        }
+        
+        .about h2 {
+            font-size: 2rem;
+            color: #00adb5;
+            margin-bottom: 20px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about img {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00adb5;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+        /* === SKILLS SECTION === */
+        
+        .skills {
+            padding: 100px 10%;
+            background: #0d0d0d;
+            text-align: center;
+        }
+        
+        .skills h2 {
+            color: #00adb5;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+        
+        .skill:hover {
+            background: #00adb5;
+            color: #000;
+            transform: translateY(-5px);
+        }
+        /* === PROJECTS SECTION === */
+        
+        .projects {
+            padding: 100px 10%;
+            background: #111;
+        }
+        
+        .projects h2 {
+            text-align: center;
+            color: #00adb5;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .project {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #222;
+        }
+        
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #00adb5;
+        }
+        
+        .project img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 15px;
+        }
+        
+        .project-content h3 {
+            color: #00adb5;
+            margin-bottom: 10px;
+        }
+        
+        .project-content p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+        /* === CONTACT SECTION === */
+        
+        .contact {
+            padding: 100px 10%;
+            background: #0a0a0a;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: #00adb5;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .contact p {
+            color: #ccc;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 20px 10%;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Ganesh Dikonda</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+        <h2>Hello, I'm <span style="color:#00adb5;">Ganesh</span></h2>
+        <p>I'm a passionate web developer who loves building responsive, interactive, and modern web applications using HTML, CSS, JavaScript, and Python.</p>
+        <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="C:\Users\Dell\OneDrive\Pictures\WhatsApp Image 2025-08-31 at 13.53.24_fa50e0cc.jpg" alt="Profile Photo" />
+            <div class="about-text">
+                <p>Hello! I'm Ganesh Dikonda, a dedicated web developer passionate about creating innovative digital experiences. I have a strong foundation in front-end and back-end development and enjoy learning new technologies that enhance user interaction
+                    and performance.</p><br>
+                <p><b>Education:</b> Bachelor of Computer Science<br>
+                    <b>Experience:</b> Worked on web projects involving HTML, CSS, JS, and Python (Flask/Django).<br>
+                    <b>Goal:</b> To become a full-stack developer and build creative solutions that make an impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+        <h2>My Skills</h2>
+        <div class="skill-list">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Git & GitHub</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1581091870622-9e8a72f0f5e0?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+                <div class="project-content">
+                    <h3>Stock Price Prediction (LSTM)</h3>
+                    <p>A deep learning project predicting stock prices using LSTM networks in Python.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+                <div class="project-content">
+                    <h3>Responsive Landing Page</h3>
+                    <p>A visually engaging, mobile-friendly landing page using HTML, CSS, and JavaScript.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Project 3">
+                <div class="project-content">
+                    <h3>Tic-Tac-Toe Game</h3>
+                    <p>An interactive Tic-Tac-Toe web app with AI and two-player modes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <b>ganeshdikonda@example.com</b></p>
+        <p>LinkedIn: <a href="#" style="color:#00adb5;">linkedin.com/in/ganeshdikonda</a></p>
+        <p>GitHub: <a href="#" style="color:#00adb5;">github.com/ganeshdikonda</a></p>
+    </section>
+
+    <footer>
+        © 2025 Ganesh Dikonda | Designed with 💙 using HTML, CSS, and JavaScript
+    </footer>
+</body>
+
+</html>
